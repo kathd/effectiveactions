@@ -3,8 +3,7 @@
 Platform for browsing and sharing effective solutions to the COVID-19 crisis.
 
 ## Stack
-Frontend: React
-Backend: Node.js with express
+React, Node.js (with express)
 
 ## Installation
 clone the repository.
@@ -17,14 +16,15 @@ cd backend
 npm install
 ```
 ## Run
-To run the app frontend:
-```
-npm run start
-```
-To run the backend in a separate terminal
+1. Run the server
 ```
 node server.js
 ```
+2. Run the react app  in a separate terminal window:
+```
+npm run start
+```
+
 
 ## Airtable
 

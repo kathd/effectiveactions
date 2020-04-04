@@ -24,13 +24,16 @@ const CardsGrid = () => {
       console.log(promise);
     }
 
-    const [solutions, setSolutions] = useState(0);
+    const [solutions, setSolutions] = useState([]);
 
     return (
         <div>
+          {console.log(solutions)}
           <h1>solutions</h1>
+          {solutions.map((solution) => (     
+            <Card id={solution.id} data={solution.fields} />
+          ))}
           <button onClick={handleClick}>loadSolutions</button>
-            <Card />
         </div>
     )
 }
