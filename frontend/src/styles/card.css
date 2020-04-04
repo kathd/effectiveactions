@@ -24,18 +24,20 @@ div.card {
     text-align: start;
     /* justify-content: flex-start; */
     width: 90%;
-    height: 15%;
+    height: 20%;
     font-size: 20px;
+    margin-top: 10px;
 }
 
 .card p.summary {
-    width: 90%;
-    height: 35%;
     padding: 8px;
-    display: flex;
+    width: 90%;
     font-size: 14px;
-    text-align: start;
-    text-overflow: ellipsis;
-    white-space: wrap;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 1.4rem;
+    padding-bottom: 0;
+    text-align: start;
 }
