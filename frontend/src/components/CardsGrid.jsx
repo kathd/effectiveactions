@@ -31,7 +31,7 @@ const CardsGrid = () => {
           {console.log(solutions)}
           <h1>solutions</h1>
           {solutions.map((solution) => (     
-            <Card id={solution.id} data={solution.fields} />
+            <Card key={solution.id} id={solution.id} data={solution.fields} />
           ))}
           <button onClick={handleClick}>loadSolutions</button>
         </div>
