@@ -69,7 +69,7 @@ const CardsGrid = ({ search }) => {
 
   return (
     <div>
-      <h1>solutions</h1>
+      <h1>Browse effective actions</h1>
       <FiltersBar
         currentFilters={filters}
         resetFilters={resetFilters}
