@@ -2,7 +2,7 @@ import React from "react";
 
 // import CardsGrid from "../components/articles/CardsGrid";
 import Header from "../components/homepage/Header";
-import SearchBar from "../components/homepage/SearchBar";
+// import SearchBar from "../components/homepage/SearchBar";
 import ActionButton from "../components/buttons/ActionButton";
 
 import "../styles/homepage.css";
@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="home">
       <Header />
-      <SearchBar />
+      {/* <SearchBar /> */}
       <div className="trending-container">
         <h2>Trending actions</h2>
         <div className="action-btn-wrapper">

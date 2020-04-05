@@ -19,8 +19,10 @@ const Header = () => {
             </button>
           }
         />
-        {/* <SearchBar /> */}
         <Statistics />
+        <div className="search-wrapper">
+          <SearchBar />
+        </div>
       </div>
     </div>
   );
