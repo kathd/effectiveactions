@@ -24,3 +24,7 @@
 .action-btn h4 {
     margin: 10px 0;
 }
+
+.action-btn img {
+    width: 50%;
+}
