@@ -4,7 +4,6 @@ import FiltersBar from "./FiltersBar";
 import "../../styles/grid.css";
 
 async function loadSolutions(which) {
-
   const res = await fetch("http://localhost:9060/solutions", {
     method: "post",
     body: JSON.stringify({ which: which }),
@@ -25,23 +24,30 @@ async function loadSolutions(which) {
 const CardsGrid = () => {
   const [filters, setFilters] = useState({
     search: "",
-    topic: [],
-    tag: [],
+    challenge: [],
+    stage: [], // e.g. idea/ concept/ prototype/ ...
+    type: [], // e.g. product/ service/ build environment
     region: [],
+    forProfit: null,
+    stakeholder: [],
     endorsement: [],
   });
   const resetFilters = () => {
-    console.log("hey");
     setFilters({
       search: "",
-      topic: [],
-      tag: [],
+      challenge: [],
+      stage: [], // e.g. idea/ concept/ prototype/ ...
+      type: [], // e.g. product/ service/ build environment
       region: [],
+      forProfit: null,
+      stakeholder: [],
       endorsement: [],
     });
   };
-  const handleFilters = (filters) => {
-    setFilters(filters);
+  const handleFilters = (e, data) => {
+    let newFilters = { ...filters };
+    newFilters[data.className] = data.value;
+    setFilters(newFilters);
   };
   const handleClick = async (which) => {
     let promise = await loadSolutions(which);
@@ -52,12 +58,16 @@ const CardsGrid = () => {
 
   // Display all solutions on load
   useEffect(() => {
-    handleClick('all');
-  },[]);
+    handleClick("all");
+  }, []);
 
   return (
     <div>
-      <FiltersBar callbacks={(resetFilters, handleFilters)} />
+      <FiltersBar
+        currentFilters={filters}
+        resetFilters={resetFilters}
+        handleFilters={handleFilters}
+      />
       {console.log(solutions)}
       <h1>solutions</h1>
       <div className="menu">

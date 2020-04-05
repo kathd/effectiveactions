@@ -9,16 +9,22 @@ const options = [
   { key: "australia", text: "Australia", value: "australia" },
 ];
 
-const Region = () => {
+const Region = ({ handleFilters, currentFilters }) => {
   return (
-    <Dropdown
-      placeholder="Region"
-      fluid
-      multiple
-      search
-      selection
-      options={options}
-    />
+    <>
+      {console.log(currentFilters)}
+      <Dropdown
+        onChange={handleFilters}
+        placeholder="Region"
+        className="region"
+        fluid
+        multiple
+        search
+        selection
+        value={currentFilters.region}
+        options={options}
+      />
+    </>
   );
 };
 

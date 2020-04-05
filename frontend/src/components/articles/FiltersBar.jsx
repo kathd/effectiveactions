@@ -9,18 +9,18 @@ import ClearFilters from "./filters/ClearFilters";
 
 import "../../styles/filters.css";
 
-const FiltersBar = ({ callbacks }) => {
+const FiltersBar = ({ resetFilters, handleFilters, currentFilters }) => {
   return (
     <div id="filters-bar">
       <div className="first-part">
-        <SearchBar />
-        <Topic />
-        <Tag />
-        <Region />
-        <Endorsement />
+        <SearchBar handleFilters={handleFilters} />
+        <Topic handleFilters={handleFilters} />
+        <Tag handleFilters={handleFilters} />
+        <Region handleFilters={handleFilters} currentFilters={currentFilters} />
+        <Endorsement handleFilters={handleFilters} />
       </div>
       <div className="second-part">
-        <ClearFilters resetFilters={callbacks.resetFilters} />
+        <ClearFilters resetFilters={resetFilters} />
       </div>
     </div>
   );
