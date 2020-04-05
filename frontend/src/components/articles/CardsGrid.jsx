@@ -21,7 +21,7 @@ async function getSolutionsByFilter(filter) {
   }
 }
 
-const CardsGrid = () => {
+const CardsGrid = ({ search }) => {
   const [filters, setFilters] = useState({
     search: "",
     sort: [],
@@ -66,7 +66,9 @@ const CardsGrid = () => {
 
   // Display all solutions on load
   useEffect(() => {
-    setFilters({ sort: ["Name"], order: "ASC" });
+    search
+      ? setFilters({ search: search, sort: ["Name"], order: "ASC" })
+      : setFilters({ sort: ["Name"], order: "ASC" });
   }, []);
 
   return (
