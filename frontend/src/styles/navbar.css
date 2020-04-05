@@ -56,11 +56,22 @@ nav.navbar {
     margin: 0 8px;
 }
 
+.nav-icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-icons a:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .nav-icons .icons .user {
     position: relative;
     font-size: 30px;
 }
 
-.nav-icons .icons .chevron.left {
-    
+.nav-icons .icons .chevron .left {
+
 }
