@@ -1,13 +1,13 @@
-#filters-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+#filters-bar .first-part {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-#filters-bar>* {
-    margin: 0 15px
+#filters-bar .first-part > * {
+  margin: 0 15px;
 }
 
-#filters-bar .searchbar {
-    min-width: 45%;
+#filters-bar .first-part .searchbar {
+  min-width: 45%;
 }

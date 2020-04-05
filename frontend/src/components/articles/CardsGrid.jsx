@@ -30,7 +30,19 @@ const CardsGrid = () => {
     region: [],
     endorsement: [],
   });
-
+  const resetFilters = () => {
+    console.log("hey");
+    setFilters({
+      search: "",
+      topic: [],
+      tag: [],
+      region: [],
+      endorsement: [],
+    });
+  };
+  const handleFilters = (filters) => {
+    setFilters(filters);
+  };
   const handleClick = async (which) => {
     let promise = await loadSolutions(which);
     setSolutions(promise);
@@ -45,7 +57,7 @@ const CardsGrid = () => {
 
   return (
     <div>
-      <FiltersBar />
+      <FiltersBar callbacks={(resetFilters, handleFilters)} />
       {console.log(solutions)}
       <h1>solutions</h1>
       <div className="menu">
@@ -60,7 +72,7 @@ const CardsGrid = () => {
         </a>
       </div>
       <div className="grid">
-        {solutions &&
+        {solutions.length &&
           solutions.map((solution) => (
             <Card key={solution.id} id={solution.id} data={solution.fields} />
           ))}
