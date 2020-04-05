@@ -9,10 +9,9 @@ const options = [
   { key: "australia", text: "Australia", value: "australia" },
 ];
 
-const Region = ({ handleFilters, currentFilters }) => {
+const Region = ({ handleFilters, filterValues }) => {
   return (
     <>
-      {console.log(currentFilters)}
       <Dropdown
         onChange={handleFilters}
         placeholder="Region"
@@ -21,7 +20,7 @@ const Region = ({ handleFilters, currentFilters }) => {
         multiple
         search
         selection
-        value={currentFilters.region}
+        value={filterValues}
         options={options}
       />
     </>

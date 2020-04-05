@@ -67,6 +67,7 @@ const CardsGrid = () => {
         currentFilters={filters}
         resetFilters={resetFilters}
         handleFilters={handleFilters}
+        solutionsResultNumber={solutions.length}
       />
       {console.log(solutions)}
       <h1>solutions</h1>
