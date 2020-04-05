@@ -20,9 +20,7 @@ const Navbar = () => {
             </i>
           </NavLink>
           <NavLink to="/">
-            <i className="icons">
-              <i aria-hidden="true" className="user icon"></i>
-            </i>
+            <img src="/images/profile icon.png" alt="user-icon" />
           </NavLink>
         </div>
       </div>

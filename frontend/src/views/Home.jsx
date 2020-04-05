@@ -11,7 +11,6 @@ const Home = () => {
       <Header />
       <div className="trending-container">
         <h2>Trending actions</h2>
-        <CardsGrid />
       </div>
     </div>
   );
