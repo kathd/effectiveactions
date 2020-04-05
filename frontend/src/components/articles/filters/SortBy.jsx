@@ -34,15 +34,15 @@ const SortBy = ({ handleFilters }) => {
   return (
     <>
       <span>
-        Sort by{" "}
+        Sort by&nbsp;
         <Dropdown
           onChange={handleFilters}
           inline
           options={sortOptions}
           defaultValue={sortOptions[0].value}
           className="sort"
-        />{" "}
-        order by{" "}
+        />&nbsp;
+        order by&nbsp;
         <Dropdown
           onChange={handleFilters}
           inline
