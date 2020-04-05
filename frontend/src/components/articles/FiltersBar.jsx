@@ -6,6 +6,7 @@ import Tag from "./filters/Tag";
 import Region from "./filters/Region";
 import Endorsement from "./filters/Endorsement";
 import ClearFilters from "./filters/ClearFilters";
+import SortBy from "./filters/SortBy";
 
 import "../../styles/filters.css";
 
@@ -32,6 +33,7 @@ const FiltersBar = ({
         <Button basic size="mini">
           {solutionsResultNumber} results
         </Button>
+        <SortBy handleFilters={handleFilters} />
       </div>
     </div>
   );

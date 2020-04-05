@@ -31,6 +31,7 @@ const CardsGrid = () => {
     forProfit: null,
     stakeholder: [],
     endorsement: [],
+    sort: "",
   });
   const resetFilters = () => {
     setFilters({
@@ -42,6 +43,7 @@ const CardsGrid = () => {
       forProfit: null,
       stakeholder: [],
       endorsement: [],
+      sort: "",
     });
   };
   const handleFilters = (e, data) => {
@@ -54,7 +56,7 @@ const CardsGrid = () => {
     setSolutions(promise);
   };
   useEffect(() => {
-    console.log("hey");
+    console.log(filters);
     // loadSolutions(filters)
   }, [filters]);
   const [solutions, setSolutions] = useState([]);
