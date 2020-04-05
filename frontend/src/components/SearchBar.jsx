@@ -5,7 +5,7 @@ const SearchBar = () => (
     <Input
     icon='search'
     iconPosition='left'
-    placeholder='Search...'
+    placeholder='search for actions by keyword, topic, or region'
   />
 )
 
