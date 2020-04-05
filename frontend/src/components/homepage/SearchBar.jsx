@@ -6,8 +6,9 @@ const SearchBar = () => {
   return (
     <Input
       action={
-        <Button>
+        <Button className="home-search-button">
           <Link
+            className="home-search-link"
             to={{
               pathname: "/articles",
               state: { search: search },

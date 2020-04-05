@@ -4,17 +4,17 @@ const sortOptions = [
   {
     key: "all",
     text: "Name",
-    value: "all",
+    value: ["Name"],
   },
   {
     key: "validated",
     text: "Validated",
-    value: "validated",
+    value: ["Featured"],
   },
   {
     key: "newest",
     text: "Newest",
-    value: "newest",
+    value: ["Added Date"],
   },
 ];
 const orderOptions = [

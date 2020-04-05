@@ -1,3 +1,14 @@
 .trending-container {
     padding: 30px 0;
 }
+
+.home-search-button {
+    position: relative;
+}
+
+.home-search-link {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 12px 0;
+}
