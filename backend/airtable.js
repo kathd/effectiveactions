@@ -10,15 +10,30 @@ console.log("loaded airtable");
 
 const airtableMiddleware = (app) => {
 
-  app.get('/solutions', (req, res, next) => {
+  app.post('/solutions', (req, res) => {
+
+    const which = req.body.which;
+    let view = "";
+    let sort = [];
+    if (which == 'newest'){
+      view = "Latest added";
+      sort = [{field: "Added Date", direction: "asc"}]
+    } else if (which == 'validated'){
+      view = "Featured Solutions";
+      sort = [{field: "Featured", direction: "desc"},{field: "Name", direction: "asc"}]
+    } else {
+      view = "All Solutions";
+      sort = [{field: "Name", direction: "asc"}]
+    }
+
     let accumulator = [];
     base('Solutions').select({
         maxRecords: 3,
-        view: "All Solutions",
+        view: view,
         fields: ["Name", "Summary","Featured","Link","Media","Type","Challenges addressed","Stage"],
         // filterByFormula: "({Featured} = true)",
         pageSize: 100,
-        sort: [{field: "Featured", direction: "desc"},{field: "Name", direction: "asc"},]
+        sort: sort
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
           console.log('Retrieved', record.get('Name'));
@@ -36,4 +51,3 @@ const airtableMiddleware = (app) => {
 }
 
 exports.airtableMiddleware = airtableMiddleware;
-
