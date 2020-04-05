@@ -1,3 +1,18 @@
+/* 
+COLORS:
+- Orange Glow:
+RGB [ 222, 112, 40 ]
+Hex #DE7028
+CMYK [ 9, 68, 99, 1 ] 
+
+- Medical Blue: 
+RGB [ 29, 110, 222 ]
+Hex #1D6EDE
+CMYK [ 81, 58, 0, 0 ]
+
+Fonts: Comfortaa, Assistant
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -8,14 +23,6 @@ body {
   background-color: #f7f9fb;
   margin: 0;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Assistant', sans-serif;
+  font-family: 'Comfortaa', cursive;
 }
