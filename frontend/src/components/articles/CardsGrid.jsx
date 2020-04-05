@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import FiltersBar from "./FiltersBar";
 import "../../styles/grid.css";
 
 async function loadSolutions(which) {
-  console.log("# which: ", which);
 
   const res = await fetch("http://localhost:9060/solutions", {
     method: "post",
@@ -38,6 +37,11 @@ const CardsGrid = () => {
   };
 
   const [solutions, setSolutions] = useState([]);
+
+  // Display all solutions on load
+  useEffect(() => {
+    handleClick('all');
+  },[]);
 
   return (
     <div>
