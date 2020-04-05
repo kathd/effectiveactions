@@ -69,30 +69,13 @@ const CardsGrid = ({ search }) => {
 
   return (
     <div>
+      <h1>solutions</h1>
       <FiltersBar
         currentFilters={filters}
         resetFilters={resetFilters}
         handleFilters={handleFilters}
         solutionsResultNumber={solutions.length}
       />
-      <h1>solutions</h1>
-      <div className="menu">
-        <a
-          href="#"
-          onClick={() => setFilters({ sort: ["Name"], order: "ASC" })}
-        >
-          All Solutions
-        </a>
-        <a
-          href="#"
-          onClick={() => setFilters({ sort: ["Added Date"], order: "ASC" })}
-        >
-          Newest
-        </a>
-        <a href="#" onClick={() => setFilters({ validated: true })}>
-          Validated
-        </a>
-      </div>
       <div className="grid">
         {solutions.length &&
           solutions.map((solution) => (

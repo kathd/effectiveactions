@@ -27,6 +27,11 @@ const airtableMiddleware = (app) => {
       })
       : [];
 
+    const search = filters.search;
+    console.log('search',search)
+
+    const region = filters.region;
+
     // { field: "Name", direction: "asc" },
 
     console.log("sort",sorting)
@@ -46,7 +51,9 @@ const airtableMiddleware = (app) => {
           "Challenges addressed",
           "Stage",
         ],
-        // filterByFormula: "({Featured} = true)",
+        // filterByFormula: `"({Region} = ${region && region[0]})"`,
+        filterByFormula: "SEARCH('" + search + "', {Name})",
+        // filterByFormula: "SEARCH('3D', {Name})",
         pageSize: 100,
         sort: sorting,
       })
