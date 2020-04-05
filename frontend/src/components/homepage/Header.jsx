@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "../SearchBar";
+import SearchBar from "./SearchBar";
 import JoinWizard from "../forms/JoinWizard";
 import Statistics from "../homepage/Statistics";
 import "../../styles/header.css";
