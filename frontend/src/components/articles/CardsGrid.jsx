@@ -53,7 +53,10 @@ const CardsGrid = () => {
     let promise = await loadSolutions(which);
     setSolutions(promise);
   };
-
+  useEffect(() => {
+    console.log("hey");
+    // loadSolutions(filters)
+  }, [filters]);
   const [solutions, setSolutions] = useState([]);
 
   // Display all solutions on load
