@@ -50,6 +50,7 @@ nav.navbar {
     align-items: flex-end;
     justify-content: flex-end;
     margin-bottom: 5px;
+    font-size: 18px;
 }
 
 .nav-right>* {
@@ -59,19 +60,10 @@ nav.navbar {
 .nav-icons {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
-.nav-icons a:nth-child(1) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-icons .icons .user {
-    position: relative;
-    font-size: 30px;
-}
-
-.nav-icons .icons .chevron .left {
-
+.nav-icons img {
+    width: 50px;
 }
