@@ -2,7 +2,7 @@ import React from "react";
 
 // import CardsGrid from "../components/articles/CardsGrid";
 import Header from "../components/homepage/Header";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/homepage/SearchBar";
 import ActionButton from "../components/buttons/ActionButton";
 
 import "../styles/homepage.css";
