@@ -3,8 +3,12 @@ import Card from "./Card";
 import FiltersBar from "./FiltersBar";
 import "../../styles/grid.css";
 
+<<<<<<< HEAD
 async function getSolutionsByFilter(filters){
   console.log("running query with filter",filters)
+=======
+async function getSolutionsByFilter(filter) {
+>>>>>>> 0b7e541841d19b9d27e740b12ec7f9ed1179c46c
   const res = await fetch("http://localhost:9060/solutions", {
     method: "post",
     body: JSON.stringify(filters),
@@ -35,6 +39,8 @@ const CardsGrid = () => {
     forProfit: null,
     stakeholder: [],
     endorsement: [],
+    sort: "",
+    order: "",
   });
   const resetFilters = () => {
     setFilters({
@@ -48,6 +54,8 @@ const CardsGrid = () => {
       forProfit: null,
       stakeholder: [],
       endorsement: [],
+      sort: "",
+      order: "",
     });
   };
   const handleFilters = (e, data) => {
@@ -56,6 +64,7 @@ const CardsGrid = () => {
     setFilters(newFilters);
   };
 
+<<<<<<< HEAD
   useEffect( () => {
     // Create an scoped async function in the hook
     (async () => {
@@ -63,9 +72,21 @@ const CardsGrid = () => {
       console.log(result);
       setSolutions(result);
     })();
+=======
+  useEffect(() => {
+    console.log("getting solutions using filters", filters);
+    getSolutionsByFilter(filters);
+>>>>>>> 0b7e541841d19b9d27e740b12ec7f9ed1179c46c
   }, [filters]);
 
+<<<<<<< HEAD
   const [solutions, setSolutions] = useState([]);
+=======
+  // Display all solutions on load
+  useEffect(() => {
+    setFilters({ sort: ["Name"], order: "ASC" });
+  }, []);
+>>>>>>> 0b7e541841d19b9d27e740b12ec7f9ed1179c46c
 
   return (
     <div>
@@ -78,13 +99,19 @@ const CardsGrid = () => {
       {console.log(solutions)}
       <h1>solutions</h1>
       <div className="menu">
-        <a href="#" onClick={() => setFilters( { sort: ["Name"], order: "ASC" } ) }>
+        <a
+          href="#"
+          onClick={() => setFilters({ sort: ["Name"], order: "ASC" })}
+        >
           All Solutions
         </a>
-        <a href="#" onClick={() => setFilters( { sort: ["Added Date"], order: "ASC" } ) }>
+        <a
+          href="#"
+          onClick={() => setFilters({ sort: ["Added Date"], order: "ASC" })}
+        >
           Newest
         </a>
-        <a href="#" onClick={() => setFilters( { validated: true } )}>
+        <a href="#" onClick={() => setFilters({ validated: true })}>
           Validated
         </a>
       </div>

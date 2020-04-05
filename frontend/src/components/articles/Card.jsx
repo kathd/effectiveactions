@@ -4,11 +4,12 @@ import "../../styles/card.css";
 const Card = ({ id, data }) => {
   return (
     <div className="card" key={id}>
-      {(data && data.Media) && (
+      {console.log(data)}
+      {data && data.Media && (
         <img src={data.Media[0].thumbnails.large.url} alt={data.Name} />
       )}
       <h2>{data.Name}</h2>
-      {(data && data.Summary !== 'undefined') && (
+      {data && data.Summary !== "undefined" && (
         <p className="summary">{data.Summary}</p>
       )}
       <p>
