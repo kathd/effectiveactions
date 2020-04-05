@@ -1,12 +1,12 @@
-import React from 'react';
-import { Input } from 'semantic-ui-react';
+import React from "react";
+import { Input } from "semantic-ui-react";
 
 const SearchBar = () => (
     <Input
     icon='search'
     iconPosition='left'
-    placeholder='Search...'
+    placeholder='search for actions by keyword, topic, or region'
   />
-)
+);
 
-export default SearchBar
+export default SearchBar;

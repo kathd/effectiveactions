@@ -1,13 +1,18 @@
 import React from "react";
 
 import CardsGrid from "../components/articles/CardsGrid";
-import HeroHeader from "../components/homepage/HeroHeader";
+import Header from "../components/homepage/Header";
+
+import "../styles/homepage.css";
 
 const Home = () => {
   return (
     <div className="home">
-      <HeroHeader />
-      <CardsGrid />
+      <Header />
+      <div className="trending-container">
+        <h2>Trending actions</h2>
+        <CardsGrid />
+      </div>
     </div>
   );
 };
