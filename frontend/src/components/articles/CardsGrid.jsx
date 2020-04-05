@@ -3,10 +3,10 @@ import Card from "./Card";
 import FiltersBar from "./FiltersBar";
 import "../../styles/grid.css";
 
-async function loadSolutions(which) {
+async function getSolutionsByFilter(filter) {
   const res = await fetch("http://localhost:9060/solutions", {
     method: "post",
-    body: JSON.stringify({ which: which }),
+    body: JSON.stringify({ filter: filter }),
     headers: { "Content-type": "application/json" },
   });
 
@@ -24,6 +24,8 @@ async function loadSolutions(which) {
 const CardsGrid = () => {
   const [filters, setFilters] = useState({
     search: "",
+    sort: [],
+    order: "ASC",
     challenge: [],
     stage: [], // e.g. idea/ concept/ prototype/ ...
     type: [], // e.g. product/ service/ build environment
@@ -31,10 +33,14 @@ const CardsGrid = () => {
     forProfit: null,
     stakeholder: [],
     endorsement: [],
+    sort: "",
+    order: "",
   });
   const resetFilters = () => {
     setFilters({
       search: "",
+      sort: [],
+      order: "ASC",
       challenge: [],
       stage: [], // e.g. idea/ concept/ prototype/ ...
       type: [], // e.g. product/ service/ build environment
@@ -42,6 +48,8 @@ const CardsGrid = () => {
       forProfit: null,
       stakeholder: [],
       endorsement: [],
+      sort: "",
+      order: "",
     });
   };
   const handleFilters = (e, data) => {
@@ -49,19 +57,16 @@ const CardsGrid = () => {
     newFilters[data.className] = data.value;
     setFilters(newFilters);
   };
-  const handleClick = async (which) => {
-    let promise = await loadSolutions(which);
-    setSolutions(promise);
-  };
+
   useEffect(() => {
-    console.log("hey");
-    // loadSolutions(filters)
+    console.log("getting solutions using filters", filters);
+    getSolutionsByFilter(filters);
   }, [filters]);
   const [solutions, setSolutions] = useState([]);
 
   // Display all solutions on load
   useEffect(() => {
-    handleClick("all");
+    setFilters({ sort: ["Name"], order: "ASC" });
   }, []);
 
   return (
@@ -75,13 +80,19 @@ const CardsGrid = () => {
       {console.log(solutions)}
       <h1>solutions</h1>
       <div className="menu">
-        <a href="#" onClick={() => handleClick("all")}>
+        <a
+          href="#"
+          onClick={() => setFilters({ sort: ["Name"], order: "ASC" })}
+        >
           All Solutions
         </a>
-        <a href="#" onClick={() => handleClick("newest")}>
+        <a
+          href="#"
+          onClick={() => setFilters({ sort: ["Added Date"], order: "ASC" })}
+        >
           Newest
         </a>
-        <a href="#" onClick={() => handleClick("validated")}>
+        <a href="#" onClick={() => setFilters({ validated: true })}>
           Validated
         </a>
       </div>
