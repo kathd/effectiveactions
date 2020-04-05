@@ -10,7 +10,7 @@
 }
 
 #filters-bar .first-part>* {
-    margin: 0 25px;
+    margin: 0 35px;
 }
 
 #filters-bar .first-part .searchbar {
@@ -24,5 +24,5 @@
 }
 
 #filters-bar .second-part>* {
-    margin: 0 25px
+    margin: 0 35px
 }

@@ -32,6 +32,7 @@ const CardsGrid = () => {
     stakeholder: [],
     endorsement: [],
     sort: "",
+    order: "",
   });
   const resetFilters = () => {
     setFilters({
@@ -44,6 +45,7 @@ const CardsGrid = () => {
       stakeholder: [],
       endorsement: [],
       sort: "",
+      order: "",
     });
   };
   const handleFilters = (e, data) => {

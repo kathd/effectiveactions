@@ -5,7 +5,6 @@ const sortOptions = [
     key: "all",
     text: "Name",
     value: "all",
-    className: "all",
   },
   {
     key: "validated",
@@ -16,6 +15,18 @@ const sortOptions = [
     key: "newest",
     text: "Newest",
     value: "newest",
+  },
+];
+const orderOptions = [
+  {
+    key: "ASC",
+    text: "ASC",
+    value: "ASC",
+  },
+  {
+    key: "DESC",
+    text: "DESC",
+    value: "DESC",
   },
 ];
 
@@ -30,6 +41,14 @@ const SortBy = ({ handleFilters }) => {
           options={sortOptions}
           defaultValue={sortOptions[0].value}
           className="sort"
+        />{" "}
+        order by{" "}
+        <Dropdown
+          onChange={handleFilters}
+          inline
+          options={orderOptions}
+          defaultValue={orderOptions[0].value}
+          className="order"
         />
       </span>
     </>
