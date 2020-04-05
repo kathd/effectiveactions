@@ -21,9 +21,11 @@ const airtableMiddleware = (app) => {
     : 'asc';
 
     let sorting = [];
-    sorting = Array.isArray(filters.sort) && filters.sort.map((item) => {
-      return {field: item, direction: order }
-    });
+    sorting = Array.isArray(filters.sort)
+      ? filters.sort.map((item) => {
+        return {field: item, direction: order }
+      })
+      : [];
 
     // { field: "Name", direction: "asc" },
 

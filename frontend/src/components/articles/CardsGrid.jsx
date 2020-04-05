@@ -10,11 +10,7 @@ async function getSolutionsByFilter(filters){
     body: JSON.stringify(filters),
     headers: { "Content-type": "application/json" },
   });
-
   const data = await res.json();
-
-  console.log("data received:", data);
-
   if (res.status === 200) {
     return data.records;
   } else {
@@ -57,10 +53,9 @@ const CardsGrid = () => {
   };
 
   useEffect( () => {
-    // Create an scoped async function in the hook
     (async () => {
       const result = await getSolutionsByFilter(filters);
-      console.log(result);
+      console.log("received solutions: ",result);
       setSolutions(result);
     })();
   }, [filters]);
@@ -75,7 +70,6 @@ const CardsGrid = () => {
         handleFilters={handleFilters}
         solutionsResultNumber={solutions.length}
       />
-      {console.log(solutions)}
       <h1>solutions</h1>
       <div className="menu">
         <a
