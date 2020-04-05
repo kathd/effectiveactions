@@ -34,7 +34,7 @@ const airtableMiddleware = (app) => {
     let accumulator = [];
     base("Solutions")
       .select({
-        maxRecords: 3,
+        maxRecords: 9,
         view: "All Solutions",
         fields: [
           "Name",
