@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Card from "./Card";
-import "../styles/grid.css";
+import "../../styles/grid.css";
 
 async function loadSolutions() {
   const res = await fetch("http://localhost:9060/solutions", { method: "GET" });

@@ -1,0 +1,50 @@
+/* 
+COLORS:
+- Orange Glow:
+RGB [ 222, 112, 40 ]
+Hex #DE7028
+CMYK [ 9, 68, 99, 1 ] 
+
+- Medical Blue: 
+RGB [ 29, 110, 222 ]
+Hex #1D6EDE
+CMYK [ 81, 58, 0, 0 ]
+
+Fonts: Comfortaa, Assistant
+*/
+
+nav.navbar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar a:hover {
+    color: #DE7028;
+}
+
+.nav-left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav-right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-right > * {
+    margin: 0 8px;
+}

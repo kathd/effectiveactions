@@ -1,6 +1,6 @@
 import React from "react";
 
-import CardsGrid from "../components/CardsGrid";
+import CardsGrid from "../components/articles/CardsGrid";
 
 const Home = () => {
   return (
