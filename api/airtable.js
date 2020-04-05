@@ -24,32 +24,16 @@ const airtableMiddleware = (app) => {
     let sorting = [];
     sorting = Array.isArray(filters.sort)
       ? filters.sort.map((item) => {
-<<<<<<< HEAD
         return {field: item, direction: order }
       })
       : [{field: filters.sort, direction: order}];
 
-    const search = filters.search.toLowerCase();
+    const search = filters.search && filters.search.toLowerCase();
     console.log('search',search)
     console.log('sorting',sorting)
 
     const region = filters.region;
 
-=======
-          return { field: item, direction: order };
-        })
-      : [];
-
-    const search = filters.search;
-    console.log("search", search);
-
-    const region = filters.region;
-
-    // { field: "Name", direction: "asc" },
-
-    console.log("sort", sorting);
-
->>>>>>> 372eb0e0baab210cf5ad3f1b3e6343b3b74b0ee8
     let accumulator = [];
     base("Solutions")
       .select({
