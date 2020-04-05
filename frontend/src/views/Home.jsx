@@ -1,11 +1,12 @@
 import React from "react";
 
-import CardsGrid from "../components/articles/CardsGrid";
+// import CardsGrid from "../components/articles/CardsGrid";
+import HeroHeader from "../components/homepage/HeroHeader";
 
 const Home = () => {
   return (
-    <div>
-      <CardsGrid />
+    <div className="home">
+      <HeroHeader />
     </div>
   );
 };
