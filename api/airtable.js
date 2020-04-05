@@ -24,18 +24,15 @@ const airtableMiddleware = (app) => {
     let sorting = [];
     sorting = Array.isArray(filters.sort)
       ? filters.sort.map((item) => {
-          return { field: item, direction: order };
-        })
-      : [];
+        return {field: item, direction: order }
+      })
+      : [{field: filters.sort, direction: order}];
 
-    const search = filters.search;
-    console.log("search", search);
+    const search = filters.search && filters.search.toLowerCase();
+    console.log('search',search)
+    console.log('sorting',sorting)
 
     const region = filters.region;
-
-    // { field: "Name", direction: "asc" },
-
-    console.log("sort", sorting);
 
     let accumulator = [];
     base("Solutions")
@@ -53,7 +50,7 @@ const airtableMiddleware = (app) => {
           "Stage",
         ],
         // filterByFormula: `"({Region} = ${region && region[0]})"`,
-        filterByFormula: "SEARCH('" + search + "', {Name})",
+        filterByFormula: "SEARCH('" + search + "', LOWER({Name}))",
         // filterByFormula: "SEARCH('3D', {Name})",
         pageSize: 100,
         sort: sorting,
