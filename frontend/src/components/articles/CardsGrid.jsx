@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Card from "./Card";
+import FiltersBar from "./FiltersBar";
 import "../../styles/grid.css";
 
 async function loadSolutions() {
@@ -16,24 +17,33 @@ async function loadSolutions() {
 }
 
 const CardsGrid = () => {
-  const handleClick = async (e) => {
+  /*   const handleClick = async (e) => {
     let promise = await loadSolutions(); // load initially
     setSolutions(promise);
     console.log(promise);
-  };
+  }; */
+  const [filters, setFilters] = useState({
+    search: "",
+    topic: [],
+    tag: [],
+    region: [],
+    endorsement: [],
+  });
 
   const [solutions, setSolutions] = useState([]);
 
   return (
     <div>
+      <FiltersBar />
       {console.log(solutions)}
       <h1>solutions</h1>
       <div className="grid">
-        {solutions.map((solution) => (
-          <Card key={solution.id} id={solution.id} data={solution.fields} />
-        ))}
+        {solutions &&
+          solutions.map((solution) => (
+            <Card key={solution.id} id={solution.id} data={solution.fields} />
+          ))}
       </div>
-        <button onClick={handleClick}>View More Solutions</button>
+      {/* <button onClick={handleClick}>View More Solutions</button> */}
     </div>
   );
 };
