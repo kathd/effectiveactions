@@ -29,7 +29,7 @@ const airtableMiddleware = (app) => {
       : [];
 
     const search = filters.search;
-    console.log('search',search)
+    console.log("search", search);
 
     const region = filters.region;
 
@@ -96,7 +96,7 @@ const airtableMiddleware = (app) => {
         ],
         // filterByFormula: "({Featured} = true)",
         pageSize: 100,
-        sort: [{ field: "Name", direction: "asc" }],
+        sort: [{ field: "Media", direction: "desc" }],
       })
       .eachPage(
         function page(records, fetchNextPage) {
