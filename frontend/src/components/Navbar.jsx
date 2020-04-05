@@ -14,12 +14,12 @@ const Navbar = () => {
         <NavLink to="/articles">projects</NavLink>|<NavLink to="/">about us</NavLink>|
         <NavLink to="/">sponsor</NavLink>
         <div className="nav-icons">
-          <NavLink to="/">
+          {/* <NavLink to="/">
             <i className="icons">
               <i aria-hidden="true" className="chevron left icon"></i>
             </i>
-          </NavLink>
-          <NavLink to="/">
+          </NavLink> */}
+          <NavLink to="/login">
             <img src="/images/profile icon.png" alt="user-icon" />
           </NavLink>
         </div>

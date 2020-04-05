@@ -1,0 +1,31 @@
+.statistics-container {
+    width: 140px;
+    background-color: #f0eeee;
+    border-radius: 15px;
+    padding: 10px 20px;
+    position: absolute;
+    left: 12px;
+    bottom: 10px;
+}
+
+.statistics-container div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 6px 0;
+}
+
+.statistics-container div span {
+    width: 50%;
+    text-align: start;
+    margin: 0 5px;
+}
+
+.stats-verified {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.stats-verified span:nth-child(1) {
+    color: #DE7028;
+}
