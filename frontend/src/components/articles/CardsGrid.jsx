@@ -3,10 +3,10 @@ import Card from "./Card";
 import FiltersBar from "./FiltersBar";
 import "../../styles/grid.css";
 
-async function loadSolutions(which) {
+async function getSolutionsByFilter(filter){
   const res = await fetch("http://localhost:9060/solutions", {
     method: "post",
-    body: JSON.stringify({ which: which }),
+    body: JSON.stringify({ filter: filter }),
     headers: { "Content-type": "application/json" },
   });
 
@@ -49,13 +49,14 @@ const CardsGrid = () => {
     newFilters[data.className] = data.value;
     setFilters(newFilters);
   };
-  const handleClick = async (which) => {
-    let promise = await loadSolutions(which);
-    setSolutions(promise);
+  const handleClick = async (filter) => {
+    setFilters({
+      sort: "all"
+    })
   };
   useEffect(() => {
-    console.log("hey");
-    // loadSolutions(filters)
+    console.log("getting solutions using filters",filters);
+    getSolutionsByFilter(filters)
   }, [filters]);
   const [solutions, setSolutions] = useState([]);
 
