@@ -8,9 +8,17 @@ const options = [
   { key: "societal", text: "Societal", value: "societal" },
 ];
 
-const Topic = () => {
+const Topic = ({ handleFilters }) => {
   return (
-    <Dropdown placeholder="Topics" fluid multiple selection options={options} />
+    <Dropdown
+      onChange={handleFilters}
+      placeholder="Topics"
+      className="topic"
+      fluid
+      multiple
+      selection
+      options={options}
+    />
   );
 };
 
