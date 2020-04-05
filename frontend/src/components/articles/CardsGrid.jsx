@@ -3,10 +3,11 @@ import Card from "./Card";
 import FiltersBar from "./FiltersBar";
 import "../../styles/grid.css";
 
-async function getSolutionsByFilter(filter){
+async function getSolutionsByFilter(filters){
+  console.log("running query with filter",filters)
   const res = await fetch("http://localhost:9060/solutions", {
     method: "post",
-    body: JSON.stringify({ filter: filter }),
+    body: JSON.stringify(filters),
     headers: { "Content-type": "application/json" },
   });
 
@@ -22,6 +23,7 @@ async function getSolutionsByFilter(filter){
 }
 
 const CardsGrid = () => {
+
   const [filters, setFilters] = useState({
     search: "",
     sort: [],
@@ -54,16 +56,16 @@ const CardsGrid = () => {
     setFilters(newFilters);
   };
 
-  useEffect(() => {
-    console.log("getting solutions using filters",filters);
-    getSolutionsByFilter(filters)
+  useEffect( () => {
+    // Create an scoped async function in the hook
+    (async () => {
+      const result = await getSolutionsByFilter(filters);
+      console.log(result);
+      setSolutions(result);
+    })();
   }, [filters]);
-  const [solutions, setSolutions] = useState([]);
 
-  // Display all solutions on load
-  useEffect(() => {
-    setFilters( { sort: ["Name"], order: "ASC" } )
-  }, []);
+  const [solutions, setSolutions] = useState([]);
 
   return (
     <div>

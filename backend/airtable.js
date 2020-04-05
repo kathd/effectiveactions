@@ -10,28 +10,30 @@ console.log("loaded airtable");
 
 const airtableMiddleware = (app) => {
   app.post("/solutions", (req, res) => {
-    const which = req.body.which;
-    let view = "";
-    let sort = [];
-    if (which == "newest") {
-      view = "Latest added";
-      sort = [{ field: "Added Date", direction: "asc" }];
-    } else if (which == "validated") {
-      view = "Featured Solutions";
-      sort = [
-        { field: "Featured", direction: "desc" },
-        { field: "Name", direction: "asc" },
-      ];
-    } else {
-      view = "All Solutions";
-      sort = [{ field: "Name", direction: "asc" }];
-    }
+
+    const filters = req.body;
+
+    console.log("filters",filters);
+
+    const order = (typeof filters.order === 'string')
+    && (filters.order.toLowerCase() === 'asc'|| filters.order.toLowerCase() === 'desc')
+    ? filters.order.toLowerCase()
+    : 'asc';
+
+    let sorting = [];
+    sorting = Array.isArray(filters.sort) && filters.sort.map((item) => {
+      return {field: item, direction: order }
+    });
+
+    // { field: "Name", direction: "asc" },
+
+    console.log("sort",sorting)
 
     let accumulator = [];
     base("Solutions")
       .select({
         maxRecords: 3,
-        view: view,
+        view: "All Solutions",
         fields: [
           "Name",
           "Summary",
@@ -44,7 +46,7 @@ const airtableMiddleware = (app) => {
         ],
         // filterByFormula: "({Featured} = true)",
         pageSize: 100,
-        sort: sort,
+        sort: sorting,
       })
       .eachPage(
         function page(records, fetchNextPage) {
