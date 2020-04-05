@@ -1,18 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import "../../styles/grid.css";
 
 async function loadSolutions(which) {
-
-  console.log('# which: ',which)
 
   const res = await fetch("http://localhost:9060/solutions", {
     method: 'post',
     body: JSON.stringify({ which: which}),
     headers: { 'Content-type': 'application/json' }
   });
-
-
 
   const data = await res.json();
 
@@ -32,6 +28,11 @@ const CardsGrid = () => {
   };
 
   const [solutions, setSolutions] = useState([]);
+
+  // Display all solutions on load
+  useEffect(() => {
+    handleClick('all');
+  },[]);
 
   return (
     <div>
