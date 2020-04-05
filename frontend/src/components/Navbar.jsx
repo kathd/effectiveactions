@@ -13,17 +13,18 @@ const Navbar = () => {
       <div className="nav-right">
         <NavLink to="/">projects</NavLink>|<NavLink to="/">about us</NavLink>|
         <NavLink to="/">sponsor</NavLink>
-        <NavLink to="/">
-          <i className="icons">
-            <i aria-hidden="true" className="chevron left icon"></i>
-          </i>
-        </NavLink>
-        <NavLink to="/">
-          <i className="huge icons">
-            <i aria-hidden="true" className="user icon"></i>
-          </i>
-        </NavLink>
-        
+        <div className="nav-icons">
+          <NavLink to="/">
+            <i className="icons">
+              <i aria-hidden="true" className="chevron left icon"></i>
+            </i>
+          </NavLink>
+          <NavLink to="/">
+            <i className="icons">
+              <i aria-hidden="true" className="user icon"></i>
+            </i>
+          </NavLink>
+        </div>
       </div>
       <p></p>
     </nav>
