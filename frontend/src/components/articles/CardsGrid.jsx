@@ -24,6 +24,8 @@ async function getSolutionsByFilter(filter){
 const CardsGrid = () => {
   const [filters, setFilters] = useState({
     search: "",
+    sort: [],
+    order: "ASC",
     challenge: [],
     stage: [], // e.g. idea/ concept/ prototype/ ...
     type: [], // e.g. product/ service/ build environment
@@ -35,6 +37,8 @@ const CardsGrid = () => {
   const resetFilters = () => {
     setFilters({
       search: "",
+      sort: [],
+      order: "ASC",
       challenge: [],
       stage: [], // e.g. idea/ concept/ prototype/ ...
       type: [], // e.g. product/ service/ build environment
@@ -49,11 +53,7 @@ const CardsGrid = () => {
     newFilters[data.className] = data.value;
     setFilters(newFilters);
   };
-  const handleClick = async (filter) => {
-    setFilters({
-      sort: "all"
-    })
-  };
+
   useEffect(() => {
     console.log("getting solutions using filters",filters);
     getSolutionsByFilter(filters)
@@ -62,7 +62,7 @@ const CardsGrid = () => {
 
   // Display all solutions on load
   useEffect(() => {
-    handleClick("all");
+    setFilters( { sort: ["Name"], order: "ASC" } )
   }, []);
 
   return (
@@ -76,13 +76,13 @@ const CardsGrid = () => {
       {console.log(solutions)}
       <h1>solutions</h1>
       <div className="menu">
-        <a href="#" onClick={() => handleClick("all")}>
+        <a href="#" onClick={() => setFilters( { sort: ["Name"], order: "ASC" } ) }>
           All Solutions
         </a>
-        <a href="#" onClick={() => handleClick("newest")}>
+        <a href="#" onClick={() => setFilters( { sort: ["Added Date"], order: "ASC" } ) }>
           Newest
         </a>
-        <a href="#" onClick={() => handleClick("validated")}>
+        <a href="#" onClick={() => setFilters( { validated: true } )}>
           Validated
         </a>
       </div>
