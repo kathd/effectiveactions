@@ -1,11 +1,12 @@
 import React from 'react'
+import { Input } from 'semantic-ui-react'
 
-const SearchBar = () => {
-    return (
-        <div className="searchbar">
-            <input type="text" placeholder="Search.." />
-        </div>
-    )
-}
+const SearchBar = () => (
+    <Input
+    icon='search'
+    iconPosition='left'
+    placeholder='Search...'
+  />
+)
 
 export default SearchBar
