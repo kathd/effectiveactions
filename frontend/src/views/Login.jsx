@@ -4,6 +4,7 @@ import "../styles/form.css"
 
 const Login = () => {
   return (
+    // use modals for login/signup forms
     <div className="login">
       <LoginForm />
     </div>

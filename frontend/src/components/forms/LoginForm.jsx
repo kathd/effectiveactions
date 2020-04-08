@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 
 const LoginForm = () => (
+  // maybe use react-form-hooks for this
   <Form>
     <Form.Field>
       <label>Email</label>
